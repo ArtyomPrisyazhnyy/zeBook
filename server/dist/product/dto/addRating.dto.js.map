@@ -1,0 +1,1 @@
+{"version":3,"file":"addRating.dto.js","sourceRoot":"","sources":["../../../src/product/dto/addRating.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,6CAA8C;AAE9C,MAAa,YAAY;CAKxB;AAHG;IADC,IAAA,qBAAW,EAAC,EAAC,OAAO,EAAE,IAAI,EAAE,WAAW,EAAE,WAAW,EAAC,CAAC;;+CACrC;AAElB;IADC,IAAA,qBAAW,EAAC,EAAC,OAAO,EAAE,GAAG,EAAE,WAAW,EAAE,eAAe,EAAC,CAAC;;0CAC7C;AAJjB,oCAKC"}

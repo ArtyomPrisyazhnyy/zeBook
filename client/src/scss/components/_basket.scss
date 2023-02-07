@@ -1,0 +1,145 @@
+@import '../variables.scss';
+
+.basketPage{
+    padding-top: 52px;
+}
+.basket_title{
+    margin: 20px 0 15px;
+    font-size: 36px;
+    font-weight: 400;
+    color: #000;
+}
+.total_basket{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.clean_basket{
+    font-weight: 500;
+    margin-right: 35px;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    cursor: pointer;
+    transition: .13s ease;
+    &:hover{
+        background-color: $main_color;
+        color: #fff;
+        border-color: $main_color;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, .35);
+    }
+}
+.total_price{
+    font-weight: 700;
+    font-size: 26px;
+
+    span{
+        font-size: 20px;
+        margin-right: 20px;
+    }
+}
+
+.basket_list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.basket_li{
+    width: 50%;
+}
+
+
+.basket_li{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.basket_item{
+    width: 100%;
+    margin-bottom: 45px;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .35);
+
+    &:nth-child(2n+1){
+        margin-right: 35px;
+    }
+
+
+}
+
+
+
+.basket_img{
+    display: flex;
+    overflow: hidden;
+    height: 260px;
+    width: 32%;
+
+    img{
+        height: 260px;
+        width: 100%;
+        min-width: 150px;
+        transition: .2s transform linear;
+    }
+}
+
+.basketItem__Inner{
+    display: flex;
+    position: relative;
+    width: 68%;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+    padding: 8px 4px 0 10px;
+}
+
+
+.remove_btn{
+    position: absolute;
+    right: 40px;
+    top: 8px;
+    z-index: 100;
+
+    cursor: pointer;
+    color: #df1f00;
+    font-weight: 500;
+    border: 1px solid #df1f00;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 0 6px;
+    transition: .13s;
+
+    &:hover{
+        background-color: #df1f00;
+        color: #fff;
+    }
+}
+
+.productNameBasket{
+    margin-top: 30px;
+    font-weight: 600;
+}
+.productsParam{
+    margin-top: 8px;
+    color: #999;
+}
+.price{
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
+    font-weight: 600;
+}
+.productsinfo{
+    margin-top: 6px;
+}

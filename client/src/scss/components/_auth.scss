@@ -1,0 +1,56 @@
+@import '../variables.scss';
+
+.auth{
+    display: flex;
+    flex-direction: column;
+    color: #444;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    
+    h1{
+        text-align: center;
+        
+    }
+}
+.form{
+    max-width: 280px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    input{
+        padding: .5rem 0 0.75rem;
+        margin-bottom: 2.5rem;
+        display: block;
+        width: 100%;
+        background: none;
+        border: none;
+        border-bottom: 1px solid #444;
+        outline: none;
+    }
+}
+
+.login{
+    margin: 0 auto;
+    font-weight: 500;
+    text-align: center;
+    button{
+        margin-bottom: 2.5rem;
+        padding: 12px 20px;
+        border-radius: 15px;
+        border: 1px solid #444;
+        transition: .1s linear;
+        &:hover{
+            background-color: $main_color;
+            border-color: $main_color;
+            color: #fff;
+        }
+    }
+    a, a:hover{
+        font-weight: 600;
+        color: $main_color;
+    }
+}

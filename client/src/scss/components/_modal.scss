@@ -1,0 +1,147 @@
+@import '../variables.scss';
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1100;
+}
+
+.modal__content{
+    width: 100%;
+    max-width: 750px;
+    padding:  30px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+
+    
+}
+.modal__title{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.form__inner{
+    display: flex;
+    align-items: center;
+}
+.form__cont{
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 12px 0;
+}
+.form_title{
+    width: 27%;
+}
+.form__control{
+    margin: 6px 0 8px 15px;
+    width: 73%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.form__textarea{
+    margin: 6px 0 8px 15px;
+    border: 1px solid black;
+    width: 73%;
+    height: 120px;
+}
+
+.modal__buttons{
+    display: flex;
+    justify-content: space-around;
+}
+.modal__btn{
+    padding: 8px 15px;
+    margin-top: 12px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .1s linear;
+    &:hover{
+        color: #fff;
+    }
+}
+.modal__close{
+    border-color: green;
+    &:hover{
+        background-color: green;
+    }
+}
+.modal__add{
+    border-color: #df1f00;
+    &:hover{
+        background-color: #df1f00;
+    }
+}
+.drop{
+    display: flex;
+    margin: 27px 0 10px;
+    justify-content: space-between;
+    &:first-child{
+        margin-top: 10px;
+    }
+}
+.dropdown{
+    position: relative;
+    display: block;
+    width: 50%;
+    cursor: pointer;
+}
+.drop_name{
+    font-weight: 600;
+}
+.listTitle::before{
+    content: "";
+    display: block;
+    margin-top: 2px;
+    border-style: solid;
+    border-width: 6px 5px 0;
+    border-color: #000 transparent transparent;
+    position: absolute;
+    top: 56%;
+    left: 150px;
+    
+    transform: translateY(-75%);
+}
+.dropdown_content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    z-index: 11000;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+.dropdown:hover .dropdown_content {
+    display: block;
+  }
+  .dropdown_content .dropdown_item {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+    background-color: #fff;
+    width: 100%;
+  }
+  .dropdown_content .dropdown_item:hover {
+    background-color: $thirdly_color;
+  }
+  .addIMG{
+      font-weight: 600;
+      margin-bottom: 5px;
+
+      input{
+          padding: 8px;
+      }
+  }
