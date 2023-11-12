@@ -1,7 +1,7 @@
 const initialState = {
     genre: [],
     writer: [],
-    oneProduct: [],
+    oneProduct: null,
     products: [],
     baskets: [],
     selectedGenre: {},

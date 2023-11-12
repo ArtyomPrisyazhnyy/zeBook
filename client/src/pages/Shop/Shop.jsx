@@ -4,7 +4,7 @@ import ProductsList from './ProductsList';
 import WriterBar from './WriterBar';
 import Pagination from '../../components/pagination/pagination'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchByCategory, fetchProductsAction, setSelectedGenre, setSelectedWriter } from '../../redux/actions/products';
+import { fetchByCategory, fetchProductsAction, setOneProduct, setSelectedGenre, setSelectedWriter } from '../../redux/actions/products';
 
 const Shop = () => {
     const dispatch = useDispatch();
@@ -22,6 +22,7 @@ const Shop = () => {
 
     useEffect(() => {
         dispatch(fetchByCategory());
+        dispatch(setOneProduct(null))
     }, [])
 
     useEffect(() => {

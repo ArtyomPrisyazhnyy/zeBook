@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import s from "../../App.module.scss"
 import { NavLink, useNavigate } from 'react-router-dom';
-import { ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from '../../utils/consts';
+import { ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 import { fetchProducts } from '../../http/productsAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsAuth, setIsAdmin } from '../../redux/actions/users';
@@ -21,7 +20,7 @@ const NavBar = () => {
         if (search != 0) {
             dispatch(setSelectedWriter({}));
             dispatch(setSelectedGenre({}));
-            navigate(SHOP_ROUTE)
+            navigate(MAIN_ROUTE)
             fetchProducts(null, null, 1, limit, search.toLowerCase())
                 .then(data => {
                     dispatch(setProducts(data.rows));
@@ -64,9 +63,10 @@ const NavBar = () => {
             <div className="container">
                 <div className="header__inner">
                     <NavLink
-                        to={SHOP_ROUTE}
+                        to={MAIN_ROUTE}
                         className="shop_title"
-                        onClick={zeBook}>zeBook</NavLink>
+                        onClick={zeBook}>zeBook
+                    </NavLink>
 
                     <div className="search">
                         <input id="navbar_search"
@@ -89,7 +89,8 @@ const NavBar = () => {
                                 className="navbar_Link"
                                 onClick={() => {
                                     navigate(BASKET_ROUTE)
-                                }}>Корзина</div>
+                                }}>Корзина
+                            </div>
                             <div
                                 className="navbar_Link"
                                 onClick={() => {

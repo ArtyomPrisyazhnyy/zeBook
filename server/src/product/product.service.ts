@@ -17,7 +17,8 @@ export class ProductService {
     constructor(
         @InjectModel(Genre) private genreRepository: typeof Genre,
         @InjectModel(writer) private writerRepository: typeof writer,
-        @InjectModel(Product) private productRepository: typeof Product,  private fileService: FilesService,
+        @InjectModel(Product) private productRepository: typeof Product,  
+        private fileService: FilesService,
         @InjectModel(Rating) private ratingRepositoty: typeof Rating,
         private jwtService: JwtService,
     ){}

@@ -1,10 +1,11 @@
 import jwt_decode from 'jwt-decode'
 
 let initialState = {
-    user: jwt_decode(localStorage.getItem('token')),
+    user: localStorage.getItem('token') ? jwt_decode(localStorage.getItem('token')) : null,
     isAdmin: !!localStorage.getItem('isAdmin'),
     isAuth: !!localStorage.getItem('token')
 };
+
 
 const users = (state = initialState, action) => {
 

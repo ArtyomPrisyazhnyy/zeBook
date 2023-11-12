@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { addToBasket, deleteProduct, getBasket, removeFromBasket } from "../../http/productsAPI";
 import deletedtn from '../../assets/delete.svg';
 import editbtn from '../../assets/edit.png';
-import { SHOP_ROUTE } from "../../utils/consts";
+import { MAIN_ROUTE } from "../../utils/consts";
 import UpdateProduct from "../../components/modals/upgateProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOneProductAction, setBaskets } from "../../redux/actions/products";
@@ -55,7 +55,7 @@ const ProductPage = () => {
 
     const removeProduct = () => {
         deleteProduct(oneProduct.id).then(data => {
-            navigate(SHOP_ROUTE)
+            navigate(MAIN_ROUTE)
         })
     }
 
@@ -63,87 +63,95 @@ const ProductPage = () => {
 
         <div className="component productPage">
             <div className="container">
-                <div className="productPage__inner">
-                    <div className="productNamePage">
-                        {oneProduct.title}
-                    </div>
-                    {!!isAdmin &&
-                        <div>
-                            <img
-                                src={editbtn}
-                                onClick={() => setProductVisible(true)}
-                                title="Редактировать товар" />
-                            <img
-                                src={deletedtn}
-                                onClick={removeProduct}
-                                title="Удалить товар" />
+                {oneProduct ?
+                    <>
+                        <div className="productPage__inner">
+                            <div className="productNamePage">
+                                {oneProduct.title}
+                            </div>
+                            {!!isAdmin &&
+                                <div>
+                                    <img
+                                        src={editbtn}
+                                        onClick={() => setProductVisible(true)}
+                                        title="Редактировать товар" />
+                                    <img
+                                        src={deletedtn}
+                                        onClick={removeProduct}
+                                        title="Удалить товар" />
+
+                                </div>
+                            }
 
                         </div>
-                    }
 
-                </div>
+                        <div className="flex">
 
-                <div className="flex">
+                            <div className="flex_left">
+                                <img
+                                    className="product_Image"
+                                    src={process.env.REACT_APP_API_URL + oneProduct.image} />
+                                <div className="desciption">
+                                    Описание:
+                                    <div className="desciption_inner">
+                                        {oneProduct.productDescription}
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div className="flex_left">
-                        <img
-                            className="product_Image"
-                            src={"http://localhost:5000/" + oneProduct.image} />
-                        <div className="desciption">
-                            Описание:
-                            <div className="desciption_inner">
-                                {oneProduct.productDescription}
+                            <div className="product_Info">
+
+                                {inBasket
+                                    ?
+                                    <>
+                                        <div className="Basket_desc">
+                                            Товар в корзине
+                                        </div>
+                                        <div className="Basket"
+                                            onClick={removeBasketItem}>
+                                            Удалить из корзины
+                                        </div>
+                                    </>
+
+
+                                    :
+                                    <div className="Basket"
+                                        onClick={add}>
+                                        Добавить в корзину
+                                    </div>
+                                }
+
+                                <div className="product_price">
+                                    {oneProduct.price} BYN/Шт
+                                </div>
+                                {oneProduct.writer &&
+                                    <div className="product_Info_Inner">
+                                        Автор: {oneProduct.writer.name}
+                                    </div>}
+
+                                {oneProduct.genre &&
+                                    <div className="product_Info_Inner">
+                                        Жанр: {oneProduct.genre.name}
+                                    </div>}
+                                <div className="product_Info_Inner">
+                                    Год издания: {oneProduct.productionYear}
+                                </div>
+                                <div className="product_Info_Inner">
+                                    Количество страниц: {oneProduct.pageCount}
+                                </div>
+                                <div className="product_Info_Inner">
+                                    Издательство: {oneProduct.edition}
+                                </div>
+
+
                             </div>
                         </div>
-                    </div>
+                    </>
+                    :
+                    <div>Loading...</div>
 
-                    <div className="product_Info">
+                }
 
-                        {inBasket
-                            ?
-                            <>
-                                <div className="Basket_desc">
-                                    Товар в корзине
-                                </div>
-                                <div className="Basket"
-                                    onClick={removeBasketItem}>
-                                    Удалить из корзины
-                                </div>
-                            </>
-
-
-                            :
-                            <div className="Basket"
-                                onClick={add}>
-                                Добавить в корзину
-                            </div>
-                        }
-
-                        <div className="product_price">
-                            {oneProduct.price} BYN/Шт
-                        </div>
-                        {oneProduct.writer &&
-                            <div className="product_Info_Inner">
-                                Автор: {oneProduct.writer.name}
-                            </div>}
-
-                        {oneProduct.genre &&
-                            <div className="product_Info_Inner">
-                                Жанр: {oneProduct.genre.name}
-                            </div>}
-                        <div className="product_Info_Inner">
-                            Год издания: {oneProduct.productionYear}
-                        </div>
-                        <div className="product_Info_Inner">
-                            Количество страниц: {oneProduct.pageCount}
-                        </div>
-                        <div className="product_Info_Inner">
-                            Издательство: {oneProduct.edition}
-                        </div>
-
-
-                    </div>
-                </div>
             </div>
 
             <UpdateProduct

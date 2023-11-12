@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from '../../utils/consts';
+import { LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 import { login, registration } from '../../http/userAPI';
 import { useDispatch } from 'react-redux';
 import { setIsAdmin, setIsAuth, setUser } from '../../redux/actions/users';
@@ -21,20 +21,22 @@ const Auth = () => {
             let data;
             if (isLogin) {
                 data = await login(email, password);
+                console.log(data);
                 if (data.roles[0].value === "ADMIN") {
                     localStorage.setItem('isAdmin', true)
                 }
 
             } else {
                 data = await registration(email, password);
+                console.log(data);
                 setIsAdmin(true);
             }
             dispatch(setUser(data));
             dispatch(setIsAdmin(!!localStorage.getItem('isAdmin')));
             dispatch(setIsAuth(true));
-            navigate(SHOP_ROUTE)
+            navigate(MAIN_ROUTE)
         } catch (e) {
-            alert(e.response.data.message);
+            console.log(e.response.data.message);
         }
 
 

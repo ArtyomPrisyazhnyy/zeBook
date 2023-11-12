@@ -1,9 +1,9 @@
-import Admin from "./pages/Admin/AdminContainer";
+import Admin from "./pages/Admin/Admin";
 import Auth from "./pages/Auth/Auth";
-import BasketContainer from "./pages/Basket/basketContainer";
+import Basket from "./pages/Basket/basket";
 import ProductPage from "./pages/productPage/ProductPage";
 import Shop from "./pages/Shop/Shop";
-import { ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, PRODUCTS_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "./utils/consts";
+import { ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, PRODUCTS_ROUTE, REGISTRATION_ROUTE, MAIN_ROUTE } from "./utils/consts";
 
 export const authRoutes = [
     {
@@ -12,13 +12,13 @@ export const authRoutes = [
     },
     {
         path: BASKET_ROUTE,
-        Component: BasketContainer
+        Component: Basket
     }
 ]
 
 export const publicRoutes = [
     {
-        path: SHOP_ROUTE,
+        path: MAIN_ROUTE,
         Component: Shop
     },
     {
